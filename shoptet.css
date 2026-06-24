@@ -4,4 +4,18 @@
    Edituj tady → commit → push (Pages build ~1–2 min) → refresh na webu.
    ========================================================================== */
 
-/* --- zatím prázdný scaffold; moduly se přidávají postupně --- */
+/* ==========================================================================
+   1) PALETA – konverzní barva na teal #0F5E5E (přebíjí Samba default #355390)
+   Krok 1 redesignu. Pokud nějaký prvek nezabere (zakompilovaná barva),
+   doplní se cílený selektor níže.
+   ========================================================================== */
+:root {
+  --color-secondary: #0F5E5E !important;
+  --color-secondary-h: 180 !important;
+  --color-secondary-s: 72% !important;
+  --color-secondary-l: 21% !important;
+  --color-secondary-hover: #0B4A4A !important;
+  --color-secondary-hover-h: 180 !important;
+  --color-secondary-hover-s: 74% !important;
+  --color-secondary-hover-l: 17% !important;
+}
