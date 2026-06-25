@@ -63,3 +63,9 @@
    ========================================================================== */
 #header { position: sticky; top: 0; z-index: 1000; background: #fff; }
 .cal-header-stuck #header { box-shadow: 0 2px 14px rgba(0, 0, 0, .09); }
+
+/* ==========================================================================
+   5) HODNOTÍCÍ HVĚZDIČKY ŽLUTÉ (plné i půlené) – všude na webu
+   ========================================================================== */
+.star.star-on::before,
+.star.star-half::before { color: #FFB400 !important; }
