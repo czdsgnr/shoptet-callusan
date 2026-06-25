@@ -148,3 +148,14 @@
 @media (max-width: 400px) {
   .cal-ci-phone { font-size: 14px; }
 }
+
+/* ==========================================================================
+   9) OPRAVA drobného textu v popisu kategorie – admin obsah má napečený
+      inline font-size:0.8125rem (≈13px). Surgical override jen na ty prvky.
+   ========================================================================== */
+.category-perex [style*="0.8125rem"],
+.category-aio [style*="0.8125rem"],
+.category-content-wrapper [style*="0.8125rem"] {
+  font-size: 1rem !important;
+  letter-spacing: normal !important;
+}
