@@ -113,7 +113,7 @@
 .cal-rz-tile:hover .cal-rz-img img { transform: scale(1.05); }
 .cal-rz-body { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; padding: 13px 15px 15px; }
 .cal-rz-nm { font-size: 16px; font-weight: 600; line-height: 1.25; }
-.cal-rz-cta { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 500; color: #0F5E5E; }
+.cal-rz-cta { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 500; color: #0F5E5E; white-space: nowrap; }
 .cal-rz-cta svg { width: 16px; height: 16px; transition: transform .15s ease; }
 .cal-rz-tile:hover .cal-rz-cta svg { transform: translateX(3px); }
 @media (max-width: 991px) { .cal-rz-grid { grid-template-columns: repeat(3, 1fr); } }
@@ -121,6 +121,7 @@
   .cal-rz-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .cal-rz-title { font-size: 20px; }
   .cal-rz-nm { font-size: 15px; }
+  .cal-rz-cta { font-size: 13px; }
 }
 
 /* ==========================================================================

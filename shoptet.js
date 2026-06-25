@@ -127,7 +127,7 @@
         '<span class="cal-rz-img"><img src="' + tiles[k].img + '" alt="' + tiles[k].t + '" loading="lazy"></span>' +
         '<span class="cal-rz-body">' +
           '<span class="cal-rz-nm">' + tiles[k].t + '</span>' +
-          '<span class="cal-rz-cta">Zobrazit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>' +
+          '<span class="cal-rz-cta">Přejít na řešení <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>' +
         '</span></a>';
     }
     html += '</div></div>';
