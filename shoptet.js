@@ -103,36 +103,27 @@
   }
 
   /* --------------------------------------------------------------------------
-     Rozcestník podle symptomů – dlaždice za USP blokem (jen homepage)
+     Rozcestník podle symptomů – dlaždice s foto produktu za USP (jen homepage)
      -------------------------------------------------------------------------- */
-  var RZ_ICON = {
-    droplet: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5C16 9 17.5 11.5 17.5 13.5A5.5 5.5 0 1 1 6.5 13.5C6.5 11.5 8 9 12 3.5Z"/></svg>',
-    crack: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3l-2.6 5.2 3.4 1-3.2 4.2 2 4.6"/></svg>',
-    layers: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l8 4-8 4-8-4 8-4z"/><path d="M4 12l8 4 8-4"/><path d="M4 16l8 4 8-4"/></svg>',
-    wind: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10a2.5 2.5 0 1 0-2.4-3.2"/><path d="M3 12h14a2.5 2.5 0 1 1-2.4 3.2"/><path d="M3 16h8"/></svg>',
-    pulse: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2.5-6 4 12 2.5-6H21"/></svg>',
-    shield: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 2.5V11c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V5.5z"/></svg>',
-    heart: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21C5 15 3 12 3 8.5A4.5 4.5 0 0 1 12 7A4.5 4.5 0 0 1 21 8.5C21 12 19 15 12 21Z"/></svg>',
-    leaf: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5.5-13.5 14-13.5 0 8.5-5.5 14-14 13.5z"/><path d="M5.5 18.5C9 15 12 13 16 11.5"/></svg>'
-  };
   function injectRozcestnik() {
     if (!document.body || document.body.className.indexOf('in-index') === -1) return;
     if (document.querySelector('.cal-rozcestnik')) return;
     var anchor = document.querySelector('.benefit-banners-full-width');
     if (!anchor || !anchor.parentNode) return;
+    var IMG = 'https://cdn.myshoptet.com/usr/www.callusan.cz/user/shop/';
     var tiles = [
-      { t: 'Suchá kůže', u: '/sucha-pokozka/', i: RZ_ICON.droplet },
-      { t: 'Popraskané paty', u: '/popraskane-paty/', i: RZ_ICON.crack },
-      { t: 'Tvrdé paty a mozoly', u: '/tvrde-paty/', i: RZ_ICON.layers },
-      { t: 'Pocení nohou', u: '/nadmerne-poceni/', i: RZ_ICON.wind },
-      { t: 'Těžké a unavené nohy', u: '/tezke-unavene-nohy/', i: RZ_ICON.pulse },
-      { t: 'Plíseň', u: '/plisnova-onemocneni/', i: RZ_ICON.shield },
-      { t: 'Bezpečně pro diabetiky', u: '/diabetes/', i: RZ_ICON.heart },
-      { t: 'Ekzém a citlivá pokožka', u: '/atopicky-ekzem/', i: RZ_ICON.leaf }
+      { t: 'Suchá kůže', u: '/sucha-pokozka/', img: IMG + 'detail/50_c2-callusan-hydro-rgb.jpg' },
+      { t: 'Popraskané paty', u: '/popraskane-paty/', img: IMG + 'detail/56_c4-callusan-komplet.png' },
+      { t: 'Tvrdé paty a mozoly', u: '/tvrde-paty/', img: IMG + 'detail/53_callusan-extra-na-tvrde-paty.jpg' },
+      { t: 'Pocení nohou', u: '/nadmerne-poceni/', img: IMG + 'detail/59_c5-callusan-fresh-rgb.jpg' },
+      { t: 'Těžké a unavené nohy', u: '/tezke-unavene-nohy/', img: IMG + 'detail/62_c6-callusan-vinum-rgb.jpg' },
+      { t: 'Plíseň', u: '/plisnova-onemocneni/', img: IMG + 'detail/65_c7-callusan-rapid-rgb.jpg' },
+      { t: 'Bezpečně pro diabetiky', u: '/diabetes/', img: IMG + 'big/315_2022-callusan-sante-175ml-rgb.jpg' },
+      { t: 'Ekzém a citlivá pokožka', u: '/atopicky-ekzem/', img: IMG + 'detail/328_c8-callusan-verde-175ml-rgb.jpg' }
     ];
     var html = '<div class="cal-rz-in"><h2 class="cal-rz-title">Najděte řešení podle svého problému</h2><div class="cal-rz-grid">';
     for (var k = 0; k < tiles.length; k++) {
-      html += '<a class="cal-rz-tile" href="' + tiles[k].u + '"><span class="cal-rz-ic">' + tiles[k].i + '</span><span class="cal-rz-nm">' + tiles[k].t + '</span></a>';
+      html += '<a class="cal-rz-tile" href="' + tiles[k].u + '"><span class="cal-rz-img"><img src="' + tiles[k].img + '" alt="' + tiles[k].t + '" loading="lazy"></span><span class="cal-rz-nm">' + tiles[k].t + '</span></a>';
     }
     html += '</div></div>';
     var sec = document.createElement('section');
