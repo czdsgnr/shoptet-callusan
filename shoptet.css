@@ -219,3 +219,8 @@
 #header #navigation a,
 #header #navigation a b,
 #header #navigation a span { text-transform: none !important; }
+
+/* ==========================================================================
+   12) FOOTER – z broskvové (#FDBCB4) na světlou teal
+   ========================================================================== */
+#footer { background-color: #E1F5EE !important; }
