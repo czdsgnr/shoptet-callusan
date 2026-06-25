@@ -57,3 +57,9 @@
   .cal-trustbar--rotating .cal-trustbar-item { display: inline-flex; justify-content: center; position: absolute; left: 0; right: 0; top: 0; opacity: 0; transition: opacity .5s ease; }
   .cal-trustbar--rotating .cal-trustbar-item.is-active { opacity: 1; }
 }
+
+/* ==========================================================================
+   4) STICKY HEADER – #header se drží při scrollu (teal lišta nahoře odjede)
+   ========================================================================== */
+#header { position: sticky; top: 0; z-index: 1000; background: #fff; }
+.cal-header-stuck #header { box-shadow: 0 2px 14px rgba(0, 0, 0, .09); }

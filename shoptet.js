@@ -61,7 +61,23 @@
     else if (mq.addListener) mq.addListener(apply);
   }
 
-  if (document.readyState !== 'loading') injectTrustbar();
-  else document.addEventListener('DOMContentLoaded', injectTrustbar);
+  /* --------------------------------------------------------------------------
+     Sticky header – jemný stín, jakmile odscrollujeme od vršku (styl v CSS)
+     -------------------------------------------------------------------------- */
+  function setupStickyHeader() {
+    var root = document.documentElement;
+    function onScroll() {
+      root.classList.toggle('cal-header-stuck', window.pageYOffset > 8);
+    }
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  function init() {
+    injectTrustbar();
+    setupStickyHeader();
+  }
+  if (document.readyState !== 'loading') init();
+  else document.addEventListener('DOMContentLoaded', init);
 
 })();
