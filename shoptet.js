@@ -110,16 +110,16 @@
     if (document.querySelector('.cal-rozcestnik')) return;
     var anchor = document.querySelector('.benefit-banners-full-width');
     if (!anchor || !anchor.parentNode) return;
-    var IMG = 'https://cdn.myshoptet.com/usr/www.callusan.cz/user/shop/';
+    var IMG = 'https://czdsgnr.github.io/shoptet-callusan/img/';
     var tiles = [
-      { t: 'Suchá kůže', u: '/sucha-pokozka/', img: IMG + 'detail/50_c2-callusan-hydro-rgb.jpg' },
-      { t: 'Popraskané paty', u: '/popraskane-paty/', img: IMG + 'detail/56_c4-callusan-komplet.png' },
-      { t: 'Tvrdé paty a mozoly', u: '/tvrde-paty/', img: IMG + 'detail/53_callusan-extra-na-tvrde-paty.jpg' },
-      { t: 'Pocení nohou', u: '/nadmerne-poceni/', img: IMG + 'detail/59_c5-callusan-fresh-rgb.jpg' },
-      { t: 'Těžké a unavené nohy', u: '/tezke-unavene-nohy/', img: IMG + 'detail/62_c6-callusan-vinum-rgb.jpg' },
-      { t: 'Plíseň', u: '/plisnova-onemocneni/', img: IMG + 'detail/65_c7-callusan-rapid-rgb.jpg' },
-      { t: 'Bezpečně pro diabetiky', u: '/diabetes/', img: IMG + 'big/315_2022-callusan-sante-175ml-rgb.jpg' },
-      { t: 'Ekzém a citlivá pokožka', u: '/atopicky-ekzem/', img: IMG + 'detail/328_c8-callusan-verde-175ml-rgb.jpg' }
+      { t: 'Suchá kůže', u: '/sucha-pokozka/', img: IMG + 'rz-sucha-kuze.jpg' },
+      { t: 'Popraskané paty', u: '/popraskane-paty/', img: IMG + 'rz-popraskane-paty.jpg' },
+      { t: 'Tvrdé paty a mozoly', u: '/tvrde-paty/', img: IMG + 'rz-tvrde-paty.jpg' },
+      { t: 'Pocení nohou', u: '/nadmerne-poceni/', img: IMG + 'rz-poceni.jpg' },
+      { t: 'Těžké a unavené nohy', u: '/tezke-unavene-nohy/', img: IMG + 'rz-tezke-nohy.jpg' },
+      { t: 'Plíseň', u: '/plisnova-onemocneni/', img: IMG + 'rz-plisen.jpg' },
+      { t: 'Bezpečně pro diabetiky', u: '/diabetes/', img: IMG + 'rz-diabetici.jpg' },
+      { t: 'Ekzém a citlivá pokožka', u: '/atopicky-ekzem/', img: IMG + 'rz-ekzem.jpg' }
     ];
     var html = '<div class="cal-rz-in"><h2 class="cal-rz-title">Najděte řešení podle svého problému</h2><div class="cal-rz-grid">';
     for (var k = 0; k < tiles.length; k++) {

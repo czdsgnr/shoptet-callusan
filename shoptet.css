@@ -114,7 +114,7 @@
   background: #F6F9F9; border-radius: 12px;
   display: flex; align-items: center; justify-content: center; overflow: hidden;
 }
-.cal-rz-img img { max-width: 82%; max-height: 88%; object-fit: contain; display: block; }
+.cal-rz-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .cal-rz-nm { font-size: 15px; font-weight: 500; line-height: 1.3; }
 @media (max-width: 991px) { .cal-rz-grid { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 640px) {
