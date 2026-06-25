@@ -173,7 +173,7 @@
 .grc-seal { width: 58px; height: 58px; border-radius: 50%; background: #0F5E5E; color: #fff; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 14px; }
 .grc-seal svg { width: 29px; height: 29px; }
 .grc-hero h2 { font-size: 26px; line-height: 1.15; margin-bottom: 10px; }
-.grc-lead { font-size: 16px; max-width: 580px; margin: 0 auto 10px; }
+.grc-lead { font-size: 16px; max-width: 580px; margin: 0 auto 10px !important; }
 .grc-lead b { color: #0F5E5E; }
 .grc-proof { font-size: 14px; color: #5A6066; }
 .grc-proof b { color: #0F5E5E; }
@@ -198,7 +198,7 @@
 .grc-prod-img { aspect-ratio: 1 / 1; background: #F6F9F9; display: flex; align-items: center; justify-content: center; position: relative; }
 .grc-prod-img img { max-width: 84%; max-height: 84%; object-fit: contain; }
 .grc-tag { position: absolute; top: 10px; left: 10px; background: #0F5E5E; color: #fff; font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 999px; }
-.grc-prod-b { padding: 13px 14px 15px; }
+.grc-prod-b { padding: 13px 14px 15px; display: flex; flex-direction: column; align-items: flex-start; }
 .grc-prod-nm { font-size: 15px; font-weight: 600; line-height: 1.25; display: block; }
 .grc-prod-rating { display: flex; align-items: center; gap: 4px; margin-top: 7px; font-size: 13px; color: #5A6066; }
 .grc-prod-rating .stars { color: #FFB400; letter-spacing: 1px; }
