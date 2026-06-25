@@ -24,3 +24,33 @@
    2) AKČNÍ CENA ČERVENĚ – jen zlevněná finální cena (kde je přeškrtnutá původní)
    ========================================================================== */
 .prices:has(.price-standard) .price-final { color: #D32F2F !important; }
+
+/* ==========================================================================
+   3) LIŠTA DŮVĚRY – tenký teal pruh nad headerem (injektuje shoptet.js)
+   ========================================================================== */
+.cal-trustbar { background: #0F5E5E; color: #ffffff; }
+.cal-trustbar-in {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 7px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 6px 30px;
+  font-size: 13px;
+  line-height: 1.4;
+  letter-spacing: .2px;
+}
+.cal-trustbar-item { display: inline-flex; align-items: center; white-space: nowrap; }
+.cal-trustbar-item::before {
+  content: "\2713";          /* ✓ */
+  margin-right: 7px;
+  font-weight: 700;
+  opacity: .85;
+}
+/* Mobil: ať se pruh nezalomí – necháme jen první claim */
+@media (max-width: 767px) {
+  .cal-trustbar-in { gap: 0; padding: 6px 12px; font-size: 12px; }
+  .cal-trustbar-item ~ .cal-trustbar-item { display: none; }
+}
