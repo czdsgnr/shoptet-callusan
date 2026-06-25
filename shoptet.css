@@ -135,11 +135,15 @@
 .cal-checkout-min #header .header-top-wrapper { justify-content: space-between !important; }
 .cal-checkout-min #header .site-name { margin: 0 !important; text-align: left !important; }
 .cal-checkout-info { display: flex; flex-direction: column; align-items: flex-end; line-height: 1.25; }
-.cal-ci-phone { display: inline-flex; align-items: center; gap: 8px; font-size: 20px; font-weight: 600; color: #0F5E5E !important; text-decoration: none; }
-.cal-ci-phone svg { width: 20px; height: 20px; }
-.cal-ci-hours { font-size: 13px; color: #5A6066; }
-@media (max-width: 600px) {
-  .cal-ci-phone { font-size: 16px; }
-  .cal-ci-phone svg { width: 17px; height: 17px; }
-  .cal-ci-hours { font-size: 12px; }
+.cal-ci-phone { display: inline-flex; align-items: center; gap: 8px; font-size: 20px; font-weight: 600; color: #0F5E5E !important; text-decoration: none; white-space: nowrap; }
+.cal-ci-phone svg { width: 20px; height: 20px; flex: none; }
+.cal-ci-hours { font-size: 13px; color: #5A6066; white-space: nowrap; }
+@media (max-width: 767px) {
+  .cal-checkout-min #header .header-top-wrapper { padding-top: 8px; padding-bottom: 8px; }
+  .cal-ci-phone { font-size: 16px; gap: 6px; }
+  .cal-ci-phone svg { width: 16px; height: 16px; }
+  .cal-ci-hours { font-size: 11px; }
+}
+@media (max-width: 400px) {
+  .cal-ci-phone { font-size: 14px; }
 }
