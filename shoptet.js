@@ -28,6 +28,37 @@
     }
     bar.innerHTML = html + '</div>';
     header.parentNode.insertBefore(bar, header);
+    setupTrustbarRotation(bar);
+  }
+
+  /* Mobil: prostřídá všechny 3 claimy (fallback v CSS = jen 1. claim) */
+  function setupTrustbarRotation(bar) {
+    var items = bar.querySelectorAll('.cal-trustbar-item');
+    if (items.length < 2) return;
+    var mq = window.matchMedia('(max-width: 767px)');
+    var idx = 0, timer = null;
+    function show(i) {
+      for (var j = 0; j < items.length; j++) {
+        items[j].classList.toggle('is-active', j === i);
+      }
+    }
+    function start() {
+      if (timer) return;
+      idx = 0; show(0);
+      bar.classList.add('cal-trustbar--rotating');
+      timer = setInterval(function () {
+        idx = (idx + 1) % items.length; show(idx);
+      }, 3500);
+    }
+    function stop() {
+      if (timer) { clearInterval(timer); timer = null; }
+      bar.classList.remove('cal-trustbar--rotating');
+      for (var j = 0; j < items.length; j++) items[j].classList.remove('is-active');
+    }
+    function apply() { mq.matches ? start() : stop(); }
+    apply();
+    if (mq.addEventListener) mq.addEventListener('change', apply);
+    else if (mq.addListener) mq.addListener(apply);
   }
 
   if (document.readyState !== 'loading') injectTrustbar();
