@@ -164,16 +164,16 @@
    10) STRÁNKA GARANCE SPOKOJENOSTI – styl pro HTML blok .cal-grc
        (HTML se vkládá do obsahu stránky v adminu; styly jsou tady)
    ========================================================================== */
-.cal-grc { font-family: inherit; color: #2A2E35; max-width: 1040px; margin: 0 auto; line-height: 1.55; padding: 8px 0; }
+.cal-grc { font-family: inherit; color: #2A2E35; max-width: 900px; margin: 0 auto; line-height: 1.55; padding: 8px 0; }
 .cal-grc * { box-sizing: border-box; }
 .cal-grc h2, .cal-grc h3 { margin: 0; color: #2A2E35; font-weight: 700; }
 .cal-grc p { margin: 0; }
 .cal-grc a { text-decoration: none; }
-.grc-hero { text-align: center; background: #EAF3F3; border-radius: 22px; padding: 44px 24px 40px; }
-.grc-seal { width: 74px; height: 74px; border-radius: 50%; background: #0F5E5E; color: #fff; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 16px; }
-.grc-seal svg { width: 38px; height: 38px; }
-.grc-hero h2 { font-size: 32px; line-height: 1.15; margin-bottom: 12px; }
-.grc-lead { font-size: 18px; max-width: 640px; margin: 0 auto 10px; }
+.grc-hero { text-align: center; background: #F4FAF9; border-radius: 20px; padding: 32px 24px 28px; }
+.grc-seal { width: 58px; height: 58px; border-radius: 50%; background: #0F5E5E; color: #fff; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+.grc-seal svg { width: 29px; height: 29px; }
+.grc-hero h2 { font-size: 26px; line-height: 1.15; margin-bottom: 10px; }
+.grc-lead { font-size: 16px; max-width: 580px; margin: 0 auto 10px; }
 .grc-lead b { color: #0F5E5E; }
 .grc-proof { font-size: 14px; color: #5A6066; }
 .grc-proof b { color: #0F5E5E; }
@@ -200,7 +200,12 @@
 .grc-tag { position: absolute; top: 10px; left: 10px; background: #0F5E5E; color: #fff; font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 999px; }
 .grc-prod-b { padding: 13px 14px 15px; }
 .grc-prod-nm { font-size: 15px; font-weight: 600; line-height: 1.25; display: block; }
-.grc-prod-go { display: inline-flex; align-items: center; gap: 5px; color: #0F5E5E; font-size: 13px; font-weight: 500; margin-top: 7px; }
+.grc-prod-rating { display: flex; align-items: center; gap: 4px; margin-top: 7px; font-size: 13px; color: #5A6066; }
+.grc-prod-rating .stars { color: #FFB400; letter-spacing: 1px; }
+.grc-prod-rating i { font-style: normal; }
+.grc-prod-price { font-size: 12px; color: #5A6066; margin-top: 6px; }
+.grc-prod-price b { font-size: 17px; color: #2A2E35; font-weight: 700; }
+.grc-prod-go { display: inline-flex; align-items: center; gap: 5px; color: #0F5E5E; font-size: 13px; font-weight: 500; margin-top: 9px; }
 @media (max-width: 860px) {
   .grc-steps { grid-template-columns: 1fr; }
   .grc-prods { grid-template-columns: repeat(2, 1fr); }
