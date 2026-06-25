@@ -133,11 +133,32 @@
     anchor.parentNode.insertBefore(sec, anchor.nextSibling);
   }
 
+  /* --------------------------------------------------------------------------
+     Checkout (kroky Doprava&platba + Informace o vás = /objednavka/):
+     minimální hlavička – logo vlevo, infolinka vpravo. Styl v CSS.
+     -------------------------------------------------------------------------- */
+  function setupCheckoutHeader() {
+    if (location.pathname.indexOf('/objednavka/') !== 0) return;
+    document.documentElement.classList.add('cal-checkout-min');
+    var wrap = document.querySelector('#header .header-top-wrapper');
+    if (!wrap || wrap.querySelector('.cal-checkout-info')) return;
+    var info = document.createElement('div');
+    info.className = 'cal-checkout-info';
+    info.innerHTML =
+      '<a class="cal-ci-phone" href="tel:+420777317387">' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L16 13l5 2v4a1.6 1.6 0 0 1-1.7 1.6A16 16 0 0 1 3.4 5.7 1.6 1.6 0 0 1 5 4z"/></svg>' +
+        '<span>+420 777 317 387</span>' +
+      '</a>' +
+      '<span class="cal-ci-hours">Po–Pá 8:00–16:00</span>';
+    wrap.appendChild(info);
+  }
+
   function init() {
     injectTrustbar();
     setupStickyHeader();
     setupLoginBenefits();
     injectRozcestnik();
+    setupCheckoutHeader();
   }
   if (document.readyState !== 'loading') init();
   else document.addEventListener('DOMContentLoaded', init);
