@@ -69,3 +69,27 @@
    ========================================================================== */
 .star.star-on::before,
 .star.star-half::before { color: #FFB400 !important; }
+
+/* ==========================================================================
+   6) LOGIN POPUP – vpravo panel výhod „Ještě nemáte účet?" (injektuje JS)
+   ========================================================================== */
+.login-widget.cal-login-wide { width: 620px; max-width: 92vw; }
+.login-widget.cal-login-wide .popup-widget-inner.cal-login-2col {
+  display: flex; align-items: stretch; gap: 0; padding: 0; max-width: none;
+}
+.cal-login-2col .cal-login-main { flex: 1 1 50%; padding: 22px 24px; min-width: 0; }
+.cal-login-2col .cal-login-benefits {
+  flex: 1 1 50%; background: #EAF3F3; padding: 22px 24px;
+  display: flex; flex-direction: column;
+}
+.cal-lb-title { margin: 0 0 4px; font-size: 18px; line-height: 1.3; color: #2A2E35; }
+.cal-lb-sub { margin: 0 0 14px; font-size: 14px; color: #5A6066; }
+.cal-lb-list { list-style: none; margin: 0 0 18px; padding: 0; }
+.cal-lb-list li { position: relative; padding: 5px 0 5px 28px; font-size: 14px; line-height: 1.4; color: #2A2E35; }
+.cal-lb-list li::before { content: "\2713"; position: absolute; left: 2px; top: 5px; color: #0F5E5E; font-weight: 700; }
+.cal-lb-btn { margin-top: auto; display: block; text-align: center; background: #0F5E5E; color: #fff !important; text-decoration: none; padding: 12px 18px; border-radius: 6px; font-weight: 500; }
+.cal-lb-btn:hover { background: #0B4A4A; }
+@media (max-width: 640px) {
+  .login-widget.cal-login-wide { width: auto; max-width: 94vw; }
+  .login-widget.cal-login-wide .popup-widget-inner.cal-login-2col { flex-direction: column; }
+}

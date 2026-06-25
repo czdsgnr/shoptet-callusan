@@ -73,11 +73,48 @@
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
+  /* --------------------------------------------------------------------------
+     Login popup – vpravo panel výhod „Ještě nemáte účet?" (styl v CSS)
+     Formulář (vč. CSRF) se nemění, jen se přesune do levého sloupce.
+     -------------------------------------------------------------------------- */
+  function setupLoginBenefits() {
+    var inner = document.querySelector('.login-widget .popup-widget-inner');
+    if (!inner || inner.querySelector('.cal-login-benefits')) return;
+    var widget = inner.closest('.login-widget');
+    var main = document.createElement('div');
+    main.className = 'cal-login-main';
+    while (inner.firstChild) main.appendChild(inner.firstChild);
+    var aside = document.createElement('aside');
+    aside.className = 'cal-login-benefits';
+    aside.innerHTML =
+      '<h3 class="cal-lb-title">Ještě nemáte účet?</h3>' +
+      '<p class="cal-lb-sub">Zaregistrujte se zdarma a získejte:</p>' +
+      '<ul class="cal-lb-list">' +
+        '<li>Historie objednávek na jednom místě</li>' +
+        '<li>Rychlejší nákup bez vyplňování údajů</li>' +
+        '<li>Přehled o stavu objednávek</li>' +
+        '<li>Speciální nabídky pro registrované</li>' +
+      '</ul>' +
+      '<a class="cal-lb-btn" href="/registrace/" rel="nofollow">Vytvořit účet zdarma</a>';
+    inner.appendChild(main);
+    inner.appendChild(aside);
+    inner.classList.add('cal-login-2col');
+    if (widget) widget.classList.add('cal-login-wide');
+  }
+
   function init() {
     injectTrustbar();
     setupStickyHeader();
+    setupLoginBenefits();
   }
   if (document.readyState !== 'loading') init();
   else document.addEventListener('DOMContentLoaded', init);
+
+  /* záloha: kdyby se popup dorenderoval až na kliknutí na účet */
+  document.addEventListener('click', function (e) {
+    if (e.target.closest && e.target.closest('[data-target="login"]')) {
+      setTimeout(setupLoginBenefits, 60);
+    }
+  }, true);
 
 })();
