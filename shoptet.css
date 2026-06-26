@@ -228,6 +228,8 @@
 /* ==========================================================================
    13) IKONY V HLAVIČCE – textové labely „Můj účet" / „Košík" (injektuje JS)
    ========================================================================== */
+.navigation-buttons { gap: 18px; }
 .navigation-buttons [data-target="login"],
 .navigation-buttons a[href="/kosik/"] { display: inline-flex; align-items: center; width: auto; }
-.cal-iclabel { margin-left: 7px; font-size: 12px; font-weight: 500; color: #2A2E35; white-space: nowrap; line-height: 1; }
+.cal-iclabel { margin-left: 8px; font-size: 12px; font-weight: 500; color: #2A2E35; white-space: nowrap; line-height: 1; }
+.navigation-buttons a[href="/kosik/"] .cal-iclabel { margin-left: 28px; }
