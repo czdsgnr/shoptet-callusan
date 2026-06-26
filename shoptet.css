@@ -228,10 +228,12 @@
 /* ==========================================================================
    13) IKONY V HLAVIČCE – textové labely „Můj účet" / „Košík" (injektuje JS)
    ========================================================================== */
-.navigation-buttons { gap: 18px; }
+.navigation-buttons { gap: 26px; }
 .navigation-buttons [data-target="login"],
 .navigation-buttons a[href="/kosik/"] { display: inline-flex; align-items: center; width: auto; }
-.cal-iclabel { margin-left: 8px; font-size: 12px; font-weight: 500; color: #2A2E35; white-space: nowrap; line-height: 1; }
-/* košík: pořadí ikona → „Košík" → odznak (flex order, bez sahání do DOM) */
-.navigation-buttons a[href="/kosik/"] .cal-iclabel { order: 1; }
-.navigation-buttons a[href="/kosik/"] i { position: static !important; order: 2; margin-left: 6px; top: auto !important; right: auto !important; }
+.cal-iclabel { font-size: 12px; font-weight: 500; color: #2A2E35; white-space: nowrap; line-height: 1; }
+.navigation-buttons [data-target="login"] .cal-iclabel { margin-left: 8px; }
+/* košík: „Košík" → ikona → odznak s počtem (flex order, bez sahání do DOM) */
+.navigation-buttons a[href="/kosik/"] .cal-iclabel { order: 0; margin-right: 8px; }
+.navigation-buttons a[href="/kosik/"] .icon-cart { order: 1; }
+.navigation-buttons a[href="/kosik/"] i { position: static !important; order: 2; margin-left: 4px; top: auto !important; right: auto !important; }
