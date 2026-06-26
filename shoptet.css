@@ -61,8 +61,9 @@
 /* ==========================================================================
    4) STICKY HEADER – #header se drží při scrollu (teal lišta nahoře odjede)
    ========================================================================== */
-#header { position: sticky; top: 0; background: #fff; }
-.cal-header-stuck #header { z-index: 1000; box-shadow: 0 2px 14px rgba(0, 0, 0, .09); }
+/* z-index 1003 = nad theme overlayem body::before (1002); sticky stejně dělá stacking context */
+#header { position: sticky; top: 0; z-index: 1003; background: #fff; }
+.cal-header-stuck #header { box-shadow: 0 2px 14px rgba(0, 0, 0, .09); }
 
 /* ==========================================================================
    5) HODNOTÍCÍ HVĚZDIČKY ŽLUTÉ (plné i půlené) – všude na webu
