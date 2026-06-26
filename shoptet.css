@@ -61,8 +61,8 @@
 /* ==========================================================================
    4) STICKY HEADER – #header se drží při scrollu (teal lišta nahoře odjede)
    ========================================================================== */
-#header { position: sticky; top: 0; z-index: 1000; background: #fff; }
-.cal-header-stuck #header { box-shadow: 0 2px 14px rgba(0, 0, 0, .09); }
+#header { position: sticky; top: 0; background: #fff; }
+.cal-header-stuck #header { z-index: 1000; box-shadow: 0 2px 14px rgba(0, 0, 0, .09); }
 
 /* ==========================================================================
    5) HODNOTÍCÍ HVĚZDIČKY ŽLUTÉ (plné i půlené) – všude na webu
@@ -224,3 +224,10 @@
    12) FOOTER – z broskvové (#FDBCB4) na světlou teal
    ========================================================================== */
 #footer { background-color: #E1F5EE !important; }
+
+/* ==========================================================================
+   13) IKONY V HLAVIČCE – textové labely „Můj účet" / „Košík" (injektuje JS)
+   ========================================================================== */
+.navigation-buttons [data-target="login"],
+.navigation-buttons a[href="/kosik/"] { display: inline-flex; align-items: center; width: auto; }
+.cal-iclabel { margin-left: 7px; font-size: 12px; font-weight: 500; color: #2A2E35; white-space: nowrap; line-height: 1; }

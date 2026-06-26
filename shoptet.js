@@ -158,12 +158,31 @@
     wrap.appendChild(info);
   }
 
+  /* --------------------------------------------------------------------------
+     Textové labely k ikonám v hlavičce: Můj účet / Košík
+     -------------------------------------------------------------------------- */
+  function addIconLabels() {
+    var nb = document.querySelector('.navigation-buttons');
+    if (!nb) return;
+    function add(el, txt) {
+      if (el && !el.querySelector('.cal-iclabel')) {
+        var s = document.createElement('span');
+        s.className = 'cal-iclabel';
+        s.textContent = txt;
+        el.appendChild(s);
+      }
+    }
+    add(nb.querySelector('[data-target="login"]'), 'Můj účet');
+    add(nb.querySelector('a[href="/kosik/"]'), 'Košík');
+  }
+
   function init() {
     injectTrustbar();
     setupStickyHeader();
     setupLoginBenefits();
     injectRozcestnik();
     setupCheckoutHeader();
+    addIconLabels();
   }
   if (document.readyState !== 'loading') init();
   else document.addEventListener('DOMContentLoaded', init);
