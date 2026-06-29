@@ -23,7 +23,8 @@
 /* ==========================================================================
    2) AKČNÍ CENA ČERVENĚ – jen zlevněná finální cena (kde je přeškrtnutá původní)
    ========================================================================== */
-.prices:has(.price-standard) .price-final { color: #D32F2F !important; }
+.prices:has(.price-standard) .price-final,
+.p-price-wrapper:has(.price-standard) .price-final { color: #D32F2F !important; }
 
 /* ==========================================================================
    3) LIŠTA DŮVĚRY – tenký teal pruh nad headerem (injektuje shoptet.js)
