@@ -189,9 +189,8 @@
       if (ps[i].querySelector('img')) { badgeP = ps[i]; break; }
     }
     if (!badgeP || badgeP.classList.contains('cal-badges-top')) return;
+    inner.insertBefore(badgeP, inner.firstElementChild);   // úplně nahoru, robustně
     badgeP.classList.add('cal-badges-top');
-    var header = inner.querySelector('.p-detail-inner-header');
-    inner.insertBefore(badgeP, header || inner.firstChild);
   }
 
   function init() {
