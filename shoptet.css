@@ -239,3 +239,9 @@
 .navigation-buttons a[href="/kosik/"] .cal-iclabel { order: 0; margin-right: 8px; }
 .navigation-buttons a[href="/kosik/"] .icon-cart { order: 1; }
 .navigation-buttons a[href="/kosik/"] i { position: static !important; order: 2; margin-left: 4px; top: auto !important; right: auto !important; }
+
+/* ==========================================================================
+   14) DETAIL PRODUKTU – badge (BESTSELLER/PRODÁNO) přesunuté nad titulek
+   ========================================================================== */
+.p-detail-inner .cal-badges-top { margin: 0 0 12px !important; }
+.cal-badges-top img { vertical-align: middle; }

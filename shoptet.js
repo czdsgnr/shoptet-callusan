@@ -176,6 +176,24 @@
     add(nb.querySelector('a[href="/kosik/"]'), 'Košík');
   }
 
+  /* --------------------------------------------------------------------------
+     Detail produktu: badge (BESTSELLER / PRODÁNO … kusů) z krátkého popisu
+     přesunout nad titulek (na začátek .p-detail-inner)
+     -------------------------------------------------------------------------- */
+  function moveProductBadges() {
+    var inner = document.querySelector('.p-detail-inner');
+    var short = document.querySelector('.p-short-description');
+    if (!inner || !short) return;
+    var badgeP = null, ps = short.querySelectorAll('p');
+    for (var i = 0; i < ps.length; i++) {
+      if (ps[i].querySelector('img')) { badgeP = ps[i]; break; }
+    }
+    if (!badgeP || badgeP.classList.contains('cal-badges-top')) return;
+    badgeP.classList.add('cal-badges-top');
+    var header = inner.querySelector('.p-detail-inner-header');
+    inner.insertBefore(badgeP, header || inner.firstChild);
+  }
+
   function init() {
     injectTrustbar();
     setupStickyHeader();
@@ -183,6 +201,7 @@
     injectRozcestnik();
     setupCheckoutHeader();
     addIconLabels();
+    moveProductBadges();
   }
   if (document.readyState !== 'loading') init();
   else document.addEventListener('DOMContentLoaded', init);
