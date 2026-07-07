@@ -181,15 +181,15 @@
      přesunout nad titulek (na začátek .p-detail-inner)
      -------------------------------------------------------------------------- */
   function moveProductBadges() {
-    var inner = document.querySelector('.p-detail-inner');
     var short = document.querySelector('.p-short-description');
-    if (!inner || !short) return;
+    var header = document.querySelector('.p-detail-inner-header');
+    if (!short || !header || !header.parentElement) return;
     var badgeP = null, ps = short.querySelectorAll('p');
     for (var i = 0; i < ps.length; i++) {
       if (ps[i].querySelector('img')) { badgeP = ps[i]; break; }
     }
     if (!badgeP || badgeP.classList.contains('cal-badges-top')) return;
-    inner.insertBefore(badgeP, inner.firstElementChild);   // úplně nahoru, robustně
+    header.parentElement.insertBefore(badgeP, header);   // nad brand+titulek, v pravém info sloupci
     badgeP.classList.add('cal-badges-top');
   }
 
