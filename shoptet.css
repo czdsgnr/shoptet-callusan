@@ -266,3 +266,29 @@
   .cal-badges-top { top: 8px; right: 8px; }
   .cal-badges-top img { height: 54px !important; margin-left: 6px; }
 }
+
+/* ==========================================================================
+   15) VÝPIS PRODUKTŮ – badge (BESTSELLER/PRODÁNO): overlay do pravého
+   horního rohu fotky karty (přesunuto z popisu)
+   ========================================================================== */
+.cal-badges-card {
+  position: absolute !important;
+  top: 8px;
+  right: 8px;
+  margin: 0 !important;
+  white-space: nowrap;
+  text-align: right;
+  z-index: 3;
+  line-height: 0;
+  pointer-events: none;   /* ať badge neblokují klik na fotku */
+}
+.cal-badges-card img {
+  height: 44px !important;
+  width: auto !important;
+  max-width: none !important;
+  vertical-align: top;
+  margin-left: 5px;
+}
+@media (max-width: 767px) {
+  .cal-badges-card img { height: 34px !important; margin-left: 4px; }
+}

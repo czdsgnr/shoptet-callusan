@@ -196,6 +196,27 @@
     badgeP.classList.add('cal-badges-top');
   }
 
+  /* --------------------------------------------------------------------------
+     Výpis produktů (kategorie): badge z popisu karty → overlay do pravého
+     horního rohu fotky. Styl v CSS → .cal-badges-card
+     -------------------------------------------------------------------------- */
+  function moveListingBadges() {
+    var cards = document.querySelectorAll('.products-block .product');
+    for (var c = 0; c < cards.length; c++) {
+      var card = cards[c];
+      var image = card.querySelector('.image');
+      if (!image) continue;
+      var badgeP = null, ps = card.querySelectorAll('.p-desc p');
+      for (var i = 0; i < ps.length; i++) {
+        if (ps[i].querySelector('img')) { badgeP = ps[i]; break; }
+      }
+      if (!badgeP || badgeP.classList.contains('cal-badges-card')) continue;
+      image.style.position = 'relative';   // kotva pro absolutní badge
+      image.appendChild(badgeP);
+      badgeP.classList.add('cal-badges-card');
+    }
+  }
+
   function init() {
     injectTrustbar();
     setupStickyHeader();
@@ -204,6 +225,7 @@
     setupCheckoutHeader();
     addIconLabels();
     moveProductBadges();
+    moveListingBadges();
   }
   if (document.readyState !== 'loading') init();
   else document.addEventListener('DOMContentLoaded', init);
