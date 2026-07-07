@@ -241,24 +241,28 @@
 .navigation-buttons a[href="/kosik/"] i { position: static !important; order: 2; margin-left: 4px; top: auto !important; right: auto !important; }
 
 /* ==========================================================================
-   14) DETAIL PRODUKTU – badge (BESTSELLER/PRODÁNO): volně v mezeře vpravo
-   od fotky (mimo tok, aby netlačily brand/titulek dolů)
+   14) DETAIL PRODUKTU – badge (BESTSELLER/PRODÁNO): overlay do pravého
+   horního rohu fotky (bílé místo vedle produktu, netlačí brand/titulek)
    ========================================================================== */
 .cal-badges-top {
   position: absolute !important;
-  top: 4px;
-  right: calc(100% + 32px);   /* posun doleva, do mezery mezi fotku a info */
+  top: 14px;
+  right: 14px;
   margin: 0 !important;
   white-space: nowrap;
-  z-index: 2;
+  text-align: right;
+  z-index: 3;
+  line-height: 0;
 }
-.cal-badges-top img { vertical-align: middle; }
-/* Mobil (1 sloupec, žádná mezera) → zpět do toku nad titulek */
-@media (max-width: 991px) {
-  .cal-badges-top {
-    position: static !important;
-    right: auto;
-    margin: 0 0 12px !important;
-    white-space: normal;
-  }
+.cal-badges-top img {
+  height: 74px !important;
+  width: auto !important;
+  max-width: none !important;
+  vertical-align: top;
+  margin-left: 8px;
+}
+/* Mobil → menší badge, blíž k rohu */
+@media (max-width: 767px) {
+  .cal-badges-top { top: 8px; right: 8px; }
+  .cal-badges-top img { height: 54px !important; margin-left: 6px; }
 }

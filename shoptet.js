@@ -178,19 +178,19 @@
 
   /* --------------------------------------------------------------------------
      Detail produktu: badge (BESTSELLER / PRODÁNO … kusů) z krátkého popisu
-     přesunout nad titulek (na začátek .p-detail-inner)
+     přesunout jako overlay do pravého horního rohu fotky (styl v CSS)
      -------------------------------------------------------------------------- */
   function moveProductBadges() {
     var short = document.querySelector('.p-short-description');
-    var header = document.querySelector('.p-detail-inner-header');
-    if (!short || !header || !header.parentElement) return;
+    var wrap = document.querySelector('.p-image-wrapper');
+    if (!short || !wrap) return;
     var badgeP = null, ps = short.querySelectorAll('p');
     for (var i = 0; i < ps.length; i++) {
       if (ps[i].querySelector('img')) { badgeP = ps[i]; break; }
     }
     if (!badgeP || badgeP.classList.contains('cal-badges-top')) return;
-    header.parentElement.insertBefore(badgeP, header);
-    header.parentElement.style.position = 'relative';   // kotva pro absolutní badge
+    wrap.style.position = 'relative';   // kotva pro absolutní badge
+    wrap.appendChild(badgeP);
     badgeP.classList.add('cal-badges-top');
   }
 
