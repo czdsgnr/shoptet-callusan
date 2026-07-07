@@ -283,12 +283,17 @@
   pointer-events: none;   /* ať badge neblokují klik na fotku */
 }
 .cal-badges-card img {
-  height: 44px !important;
+  height: 62px !important;
   width: auto !important;
   max-width: none !important;
   vertical-align: top;
-  margin-left: 5px;
+  margin-left: 6px;
 }
 @media (max-width: 767px) {
-  .cal-badges-card img { height: 34px !important; margin-left: 4px; }
+  .cal-badges-card img { height: 46px !important; margin-left: 4px; }
+}
+/* Kód produktu ve výpisu → na střed (místo vpravo) */
+.products-block .product .p-code {
+  display: block !important;
+  text-align: center !important;
 }
