@@ -189,7 +189,8 @@
       if (ps[i].querySelector('img')) { badgeP = ps[i]; break; }
     }
     if (!badgeP || badgeP.classList.contains('cal-badges-top')) return;
-    header.parentElement.insertBefore(badgeP, header);   // nad brand+titulek, v pravém info sloupci
+    header.parentElement.insertBefore(badgeP, header);
+    header.parentElement.style.position = 'relative';   // kotva pro absolutní badge
     badgeP.classList.add('cal-badges-top');
   }
 
