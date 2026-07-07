@@ -182,15 +182,17 @@
      -------------------------------------------------------------------------- */
   function moveProductBadges() {
     var short = document.querySelector('.p-short-description');
-    var wrap = document.querySelector('.p-image-wrapper');
-    if (!short || !wrap) return;
+    // .p-image je přesně široké jako fotka (na rozdíl od .p-image-wrapper,
+    // které má vpravo prázdný pruh) → badge se pak vejde celý na fotku
+    var img = document.querySelector('.p-image') || document.querySelector('.p-image-wrapper');
+    if (!short || !img) return;
     var badgeP = null, ps = short.querySelectorAll('p');
     for (var i = 0; i < ps.length; i++) {
       if (ps[i].querySelector('img')) { badgeP = ps[i]; break; }
     }
     if (!badgeP || badgeP.classList.contains('cal-badges-top')) return;
-    wrap.style.position = 'relative';   // kotva pro absolutní badge
-    wrap.appendChild(badgeP);
+    img.style.position = 'relative';   // kotva pro absolutní badge
+    img.appendChild(badgeP);
     badgeP.classList.add('cal-badges-top');
   }
 
