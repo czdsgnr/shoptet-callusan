@@ -154,7 +154,7 @@
         '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L16 13l5 2v4a1.6 1.6 0 0 1-1.7 1.6A16 16 0 0 1 3.4 5.7 1.6 1.6 0 0 1 5 4z"/></svg>' +
         '<span>+420 777 317 387</span>' +
       '</a>' +
-      '<span class="cal-ci-hours">Po–Pá 8:00–16:00</span>';
+      '<span class="cal-ci-hours">Po–Pá 8:00–14:00</span>';
     wrap.appendChild(info);
   }
 
