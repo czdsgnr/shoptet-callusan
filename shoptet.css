@@ -65,8 +65,8 @@
 /* z-index 1003 = nad theme overlayem body::before (1002); sticky stejně dělá stacking context */
 #header { position: sticky; top: 0; z-index: 1003; background: #fff; }
 .cal-header-stuck #header { box-shadow: 0 2px 14px rgba(0, 0, 0, .09); }
-/* Košík (/kosik/) → header ať nejezdí (nesticky) */
-body.in-kosik #header { position: static !important; box-shadow: none !important; }
+/* Celý nákupní proces (košík + /objednavka/krok-1,2,3) → header ať nejezdí */
+body.ordering-process #header { position: static !important; box-shadow: none !important; }
 
 /* ==========================================================================
    5) HODNOTÍCÍ HVĚZDIČKY ŽLUTÉ (plné i půlené) – všude na webu
