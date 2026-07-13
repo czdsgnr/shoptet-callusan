@@ -243,10 +243,15 @@
      cenu/kód přes nativní logiku Shoptetu. Nepřepisuje už zvolenou variantu.
      -------------------------------------------------------------------------- */
   function preselectVariant() {
-    var inputs = document.querySelectorAll('.variant-list input');
-    if (!inputs.length) return;
-    for (var j = 0; j < inputs.length; j++) { if (inputs[j].checked) return; }  // už vybráno (deeplink/uživatel)
     var inners = document.querySelectorAll('.variant-list .advanced-parameter-inner');
+    if (!inners.length) return;
+    // reálná varianta už zvolená? (koukáme jen na inputy uvnitř buněk variant,
+    // ne na skrytý placeholder input, který bývá defaultně zaškrtnutý)
+    var cells = document.querySelectorAll('.variant-list .advanced-parameter');
+    for (var c = 0; c < cells.length; c++) {
+      var ci = cells[c].querySelector('input');
+      if (ci && ci.checked) return;
+    }
     var best = null, bestMl = -1;
     for (var i = 0; i < inners.length; i++) {
       var t = inners[i].getAttribute('data-original-title') || inners[i].getAttribute('title') || '';
