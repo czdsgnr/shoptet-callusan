@@ -366,7 +366,8 @@ body.ordering-process #header { position: static !important; box-shadow: none !i
   display: flex;
   align-items: center;
   gap: 13px;
-  background: #E1F5EE;
+  background: #FDF4DC;                /* teplá jantarová – dárek vyskočí */
+  border: 1px solid #F2DFA8;
   border-radius: 12px;
   padding: 14px 16px;
   margin: 2px 0 10px;
@@ -376,7 +377,7 @@ body.ordering-process #header { position: static !important; box-shadow: none !i
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: #0F5E5E;
+  background: #E5A21C;               /* zlaté kolečko */
   color: #fff;
   display: flex;
   align-items: center;
@@ -388,7 +389,7 @@ body.ordering-process #header { position: static !important; box-shadow: none !i
 .cal-usp-gift > span:last-child * { color: #2A2E35 !important; }
 /* zvýrazněná dárková částka – teal, drží pohromadě (nezalomí se) */
 .p-short-description .cal-usp-gift .cal-usp-em {
-  color: #0F5E5E !important;
+  color: #9A6400 !important;         /* tmavě jantarová – ladí s boxem */
   font-weight: 600 !important;
   white-space: nowrap;
 }
