@@ -238,20 +238,12 @@
   }
 
   /* --------------------------------------------------------------------------
-     Detail produktu: přednastavit největší variantu (= nejvýhodnější balení).
-     Objem čteme z tooltipu (data-original-title="ml: 300"), klik přepočítá
-     cenu/kód přes nativní logiku Shoptetu. Nepřepisuje už zvolenou variantu.
+     Detail produktu: zvýraznit největší variantu (= nejvýhodnější balení)
+     badgem „Nejvýhodnější" nad thumbnailem. Nic automaticky nevybírá.
      -------------------------------------------------------------------------- */
-  function preselectVariant() {
+  function highlightBestVariant() {
     var inners = document.querySelectorAll('.variant-list .advanced-parameter-inner');
     if (!inners.length) return;
-    // reálná varianta už zvolená? (koukáme jen na inputy uvnitř buněk variant,
-    // ne na skrytý placeholder input, který bývá defaultně zaškrtnutý)
-    var cells = document.querySelectorAll('.variant-list .advanced-parameter');
-    for (var c = 0; c < cells.length; c++) {
-      var ci = cells[c].querySelector('input');
-      if (ci && ci.checked) return;
-    }
     var best = null, bestMl = -1;
     for (var i = 0; i < inners.length; i++) {
       var t = inners[i].getAttribute('data-original-title') || inners[i].getAttribute('title') || '';
@@ -261,8 +253,13 @@
       if (ml > bestMl) { bestMl = ml; best = inners[i]; }
     }
     if (!best) return;
-    var input = best.closest('.advanced-parameter').querySelector('input');
-    if (input) input.click();
+    var cell = best.closest('.advanced-parameter');
+    if (!cell || cell.querySelector('.cal-variant-best')) return;
+    cell.classList.add('cal-variant-best-cell');
+    var b = document.createElement('span');
+    b.className = 'cal-variant-best';
+    b.textContent = 'Nejvýhodnější';
+    cell.insertBefore(b, cell.firstChild);
   }
 
   function init() {
@@ -275,7 +272,7 @@
     moveProductBadges();
     moveListingBadges();
     addVariantMl();
-    setTimeout(preselectVariant, 500);   // až se navážou Shoptet handlery variant
+    highlightBestVariant();
   }
   if (document.readyState !== 'loading') init();
   else document.addEventListener('DOMContentLoaded', init);

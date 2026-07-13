@@ -312,3 +312,24 @@ body.ordering-process #header { position: static !important; box-shadow: none !i
   margin-top: 6px;
   line-height: 1.2;
 }
+/* Zvýraznění nejvýhodnější (největší) varianty – badge nad thumbnailem */
+.variant-list .clearfix { margin-top: 14px; }   /* místo pro badge nad variantami */
+.cal-variant-best-cell { position: relative; overflow: visible; }
+.cal-variant-best {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0F5E5E;
+  color: #fff;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 10px;
+  white-space: nowrap;
+  z-index: 2;
+  pointer-events: none;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .15);
+}
