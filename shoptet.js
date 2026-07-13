@@ -286,6 +286,8 @@
         p.classList.add('cal-usp-chip');
         p.innerHTML = USP_ICON.shield + '<span>' + html + '</span>';
       } else if (/zdarma|darek/.test(norm)) {
+        // částku „NN ml … zdarma" zvýraznit teal a nezalomit uprostřed
+        html = html.replace(/(\d+\s*ml[^<\d]*?zdarma)/i, '<b class="cal-usp-em">$1</b>');
         p.classList.add('cal-usp-gift');
         p.innerHTML = '<span class="ico">' + USP_ICON.gift + '</span><span>' + html + '</span>';
       } else if (/vite,?\s*ze/.test(norm)) {
