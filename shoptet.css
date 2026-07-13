@@ -498,13 +498,13 @@ body.ordering-process #header { position: static !important; box-shadow: none !i
 /* ==========================================================================
    20) KATEGORIE Mousse de Soleil – úvodní hero (HTML v popisu kategorie)
    ========================================================================== */
-.cal-sun-hero { background: #FFF6E6; border-radius: 16px; padding: 30px 32px; margin-bottom: 28px; }
+.cal-sun-hero { background: #FFF6E6; border-radius: 16px; padding: 30px 32px; margin-bottom: 28px; text-align: left; }
 .cal-sun-tag { display: inline-block; color: #0F5E5E; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; font-size: 13px; margin-bottom: 8px; }
 .cal-sun-hero h2 { font-size: 2rem; color: #2A2E35; margin: 0 0 12px; text-transform: none; line-height: 1.15; }
 .cal-sun-hero > p { font-size: 1rem; line-height: 1.65; color: #2A2E35; max-width: 780px; margin: 0 0 22px; }
 .cal-sun-feats { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 .cal-sun-feat { display: flex; align-items: flex-start; gap: 12px; }
-.cal-sun-feat svg { width: 26px; height: 26px; color: #E5A21C; flex: none; margin-top: 2px; }
+.cal-sun-feat svg { width: 26px !important; height: 26px !important; color: #E5A21C; flex: none; margin-top: 2px; }
 .cal-sun-feat strong { display: block; color: #2A2E35; font-size: .98rem; margin-bottom: 2px; }
 .cal-sun-feat span { font-size: .88rem; color: #5A6066; line-height: 1.4; }
 @media (max-width: 640px) { .cal-sun-feats { grid-template-columns: 1fr; } .cal-sun-hero { padding: 24px 20px; } .cal-sun-hero h2 { font-size: 1.6rem; } }
