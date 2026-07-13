@@ -337,8 +337,14 @@ body.ordering-process #header { position: static !important; box-shadow: none !i
    17) DETAIL PRODUKTU – USP prvky z krátkého popisu (chip / dárek / víte že /
    nejvýhodnější). JS obalí odstavce podle klíčových slov → tady je styl.
    ========================================================================== */
-/* sjednocená velikost/řádkování textu USP prvků (přebít Shoptet default) */
-.p-short-description [class*="cal-usp-"] { font-size: 15px; line-height: 1.5; }
+/* decentní velikost + řez textu USP prvků (přebít tučný/velký Shoptet default) */
+.p-short-description [class*="cal-usp-"],
+.p-short-description [class*="cal-usp-"] span { font-size: 14px !important; line-height: 1.5; }
+/* text v boxech normální řez, štítky jen lehce zvýrazněné */
+.cal-usp-gift > span:last-child, .cal-usp-gift > span:last-child *,
+.cal-usp-know > span, .cal-usp-know > span * { font-weight: 400 !important; }
+.cal-usp-chip, .cal-usp-chip *,
+.cal-usp-best, .cal-usp-best * { font-weight: 500 !important; }
 
 .p-short-description .cal-usp-chip,
 .p-short-description .cal-usp-best {
