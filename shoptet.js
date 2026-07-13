@@ -237,6 +237,29 @@
     }
   }
 
+  /* --------------------------------------------------------------------------
+     Detail produktu: přednastavit největší variantu (= nejvýhodnější balení).
+     Objem čteme z tooltipu (data-original-title="ml: 300"), klik přepočítá
+     cenu/kód přes nativní logiku Shoptetu. Nepřepisuje už zvolenou variantu.
+     -------------------------------------------------------------------------- */
+  function preselectVariant() {
+    var inputs = document.querySelectorAll('.variant-list input');
+    if (!inputs.length) return;
+    for (var j = 0; j < inputs.length; j++) { if (inputs[j].checked) return; }  // už vybráno (deeplink/uživatel)
+    var inners = document.querySelectorAll('.variant-list .advanced-parameter-inner');
+    var best = null, bestMl = -1;
+    for (var i = 0; i < inners.length; i++) {
+      var t = inners[i].getAttribute('data-original-title') || inners[i].getAttribute('title') || '';
+      if (!/ml/i.test(t)) continue;                          // jen objemové varianty
+      var m = t.match(/(\d+)/);
+      var ml = m ? parseInt(m[1], 10) : -1;
+      if (ml > bestMl) { bestMl = ml; best = inners[i]; }
+    }
+    if (!best) return;
+    var input = best.closest('.advanced-parameter').querySelector('input');
+    if (input) input.click();
+  }
+
   function init() {
     injectTrustbar();
     setupStickyHeader();
@@ -247,6 +270,7 @@
     moveProductBadges();
     moveListingBadges();
     addVariantMl();
+    setTimeout(preselectVariant, 500);   // až se navážou Shoptet handlery variant
   }
   if (document.readyState !== 'loading') init();
   else document.addEventListener('DOMContentLoaded', init);
