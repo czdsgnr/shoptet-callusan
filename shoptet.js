@@ -262,6 +262,42 @@
     cell.insertBefore(b, cell.firstChild);
   }
 
+  /* --------------------------------------------------------------------------
+     Detail produktu: z holých odstavců krátkého popisu udělat USP prvky
+     (chip pro diabetiky, dárkový box, „Víte, že" karta, badge nejvýhodnější).
+     Rozpoznává podle klíčových slov (bez diakritiky). Styl v CSS → .cal-usp-*
+     -------------------------------------------------------------------------- */
+  var USP_ICON = {
+    shield: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>',
+    gift: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h16v9H4z"/><path d="M3 7h18v4H3z"/><path d="M12 7v13"/><path d="M12 7C11 4 9.5 3 8 3.6 6.3 4 6.5 6.9 8 7z"/><path d="M12 7c1-3 2.5-4 4-3.4 1.7.4 1.5 3.3 0 3.4z"/></svg>',
+    bulb: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M8.5 14A5 5 0 1 1 15.5 14c-.7.7-1.4 1.4-1.5 2.5H10c-.1-1.1-.8-1.8-1.5-2.5z"/></svg>',
+    award: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M9 14l-1 7 4-2.5L16 21l-1-7"/></svg>'
+  };
+  function decorateUSP() {
+    var sd = document.querySelector('.p-short-description');
+    if (!sd) return;
+    var ps = sd.querySelectorAll('p');
+    for (var i = 0; i < ps.length; i++) {
+      var p = ps[i];
+      if (p.querySelector('img') || /cal-usp/.test(p.className)) continue;
+      var norm = (p.textContent || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+      var html = p.innerHTML;
+      if (/diabetik/.test(norm)) {
+        p.classList.add('cal-usp-chip');
+        p.innerHTML = USP_ICON.shield + '<span>' + html + '</span>';
+      } else if (/zdarma|darek/.test(norm)) {
+        p.classList.add('cal-usp-gift');
+        p.innerHTML = '<span class="ico">' + USP_ICON.gift + '</span><span>' + html + '</span>';
+      } else if (/vite,?\s*ze/.test(norm)) {
+        p.classList.add('cal-usp-know');
+        p.innerHTML = USP_ICON.bulb + '<span>' + html + '</span>';
+      } else if (/nejvyhodnejsi/.test(norm)) {
+        p.classList.add('cal-usp-best');
+        p.innerHTML = USP_ICON.award + '<span>' + html + '</span>';
+      }
+    }
+  }
+
   function init() {
     injectTrustbar();
     setupStickyHeader();
@@ -273,6 +309,7 @@
     moveListingBadges();
     addVariantMl();
     highlightBestVariant();
+    decorateUSP();
   }
   if (document.readyState !== 'loading') init();
   else document.addEventListener('DOMContentLoaded', init);

@@ -332,3 +332,61 @@ body.ordering-process #header { position: static !important; box-shadow: none !i
   pointer-events: none;
   box-shadow: 0 1px 4px rgba(0, 0, 0, .15);
 }
+
+/* ==========================================================================
+   17) DETAIL PRODUKTU – USP prvky z krátkého popisu (chip / dárek / víte že /
+   nejvýhodnější). JS obalí odstavce podle klíčových slov → tady je styl.
+   ========================================================================== */
+.p-short-description .cal-usp-chip,
+.p-short-description .cal-usp-best {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 999px;
+  margin: 2px 0 10px;
+}
+.cal-usp-chip { background: #E1F5EE; color: #085041; }
+.cal-usp-best { background: #0F5E5E; }
+.cal-usp-best, .cal-usp-best * { color: #fff !important; }
+.cal-usp-chip svg, .cal-usp-best svg { width: 18px; height: 18px; flex: none; }
+
+.p-short-description .cal-usp-gift {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  background: #E1F5EE;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin: 2px 0 10px;
+}
+.cal-usp-gift .ico {
+  flex: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #0F5E5E;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cal-usp-gift .ico svg { width: 21px; height: 21px; }
+/* text v dárkovém boxu vždy grafitový (přebít případnou červenou z administrace) */
+.cal-usp-gift > span:last-child,
+.cal-usp-gift > span:last-child * { color: #2A2E35 !important; }
+
+.p-short-description .cal-usp-know {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: #F4FAF9;
+  border: 1px solid #CDE9E0;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin: 2px 0 10px;
+}
+.cal-usp-know > svg { width: 21px; height: 21px; flex: none; color: #0F5E5E; margin-top: 1px; }
+.cal-usp-know > span { color: #2A2E35; }
