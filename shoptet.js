@@ -217,6 +217,26 @@
     }
   }
 
+  /* --------------------------------------------------------------------------
+     Detail produktu: pod každou variantu dopsat objem (ml).
+     Hodnota je v tooltipu thumbnailu (data-original-title="ml: 300"). Styl v CSS.
+     -------------------------------------------------------------------------- */
+  function addVariantMl() {
+    var inners = document.querySelectorAll('.variant-list .advanced-parameter-inner');
+    for (var i = 0; i < inners.length; i++) {
+      var inner = inners[i];
+      var cell = inner.closest('.advanced-parameter');
+      if (!cell || cell.querySelector('.cal-variant-ml')) continue;
+      var t = inner.getAttribute('data-original-title') || inner.getAttribute('title') || '';
+      var m = t.match(/(\d+)/);
+      if (!m) continue;
+      var lab = document.createElement('span');
+      lab.className = 'cal-variant-ml';
+      lab.textContent = m[1] + ' ml';
+      cell.appendChild(lab);
+    }
+  }
+
   function init() {
     injectTrustbar();
     setupStickyHeader();
@@ -226,6 +246,7 @@
     addIconLabels();
     moveProductBadges();
     moveListingBadges();
+    addVariantMl();
   }
   if (document.readyState !== 'loading') init();
   else document.addEventListener('DOMContentLoaded', init);

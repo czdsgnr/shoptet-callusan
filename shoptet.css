@@ -299,3 +299,16 @@ body.ordering-process #header { position: static !important; box-shadow: none !i
   display: block !important;
   text-align: center !important;
 }
+
+/* ==========================================================================
+   16) DETAIL PRODUKTU – objem (ml) pod každou variantou
+   ========================================================================== */
+.cal-variant-ml {
+  display: block;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #2A2E35;
+  margin-top: 6px;
+  line-height: 1.2;
+}
