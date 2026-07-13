@@ -313,21 +313,20 @@ body.ordering-process #header { position: static !important; box-shadow: none !i
   line-height: 1.2;
 }
 /* Zvýraznění nejvýhodnější (největší) varianty – badge nad thumbnailem */
-.variant-list .clearfix { margin-top: 14px; }   /* místo pro badge nad variantami */
+.variant-list { margin-top: 34px; }              /* mezera nad nadpis VARIANTA */
+.variant-list .clearfix { margin-top: 24px; }    /* místo pro badge nad variantami */
 .cal-variant-best-cell { position: relative; overflow: visible; }
 .cal-variant-best {
   position: absolute;
-  top: -13px;
+  top: -16px;
   left: 50%;
   transform: translateX(-50%);
   background: #0F5E5E;
   color: #fff;
-  font-size: 0.62rem;
+  font-size: 0.82rem;
   font-weight: 700;
-  letter-spacing: .02em;
-  text-transform: uppercase;
-  padding: 2px 8px;
-  border-radius: 10px;
+  padding: 4px 13px;
+  border-radius: 14px;
   white-space: nowrap;
   z-index: 2;
   pointer-events: none;
