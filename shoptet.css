@@ -419,14 +419,14 @@ body.ordering-process #header { position: static !important; box-shadow: none !i
   align-items: center;
 }
 .cal-onas-text h2 {
-  font-size: 1.9rem;
+  font-size: 30px;
   line-height: 1.2;
   color: #0F5E5E;
   margin: 0 0 16px;
   text-transform: none;
 }
 .cal-onas-text p {
-  font-size: 1rem;
+  font-size: 16px;
   line-height: 1.65;
   color: #2A2E35;
   margin: 0 0 14px;
@@ -436,7 +436,7 @@ body.ordering-process #header { position: static !important; box-shadow: none !i
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: .95rem;
+  font-size: 16px;
   color: #2A2E35;
   margin: 10px 0;
 }
@@ -448,7 +448,7 @@ body.ordering-process #header { position: static !important; box-shadow: none !i
   margin-top: 24px;
   background: #0F5E5E;
   color: #fff !important;
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: 600;
   padding: 12px 22px;
   border-radius: 8px;
@@ -467,29 +467,29 @@ body.ordering-process #header { position: static !important; box-shadow: none !i
 @media (max-width: 767px) {
   .cal-onas-in { grid-template-columns: 1fr; gap: 24px; }
   .cal-onas-img { order: -1; }
-  .cal-onas-text h2 { font-size: 1.5rem; }
+  .cal-onas-text h2 { font-size: 24px; }
 }
 
 /* ==========================================================================
    19) STRÁNKA „Nevyzvednutá zásilka" – přehledné sekce (HTML v adminu)
    ========================================================================== */
-.cal-nvz { max-width: 840px; }
+.cal-nvz { max-width: 840px; font-size: 16px; }
 .cal-nvz p { line-height: 1.65; color: #2A2E35; }
-.cal-nvz-lead { font-size: 1.08rem; }
-.cal-nvz h3 { color: #0F5E5E; font-size: 1.35rem; margin: 30px 0 12px; text-transform: none; }
+.cal-nvz-lead { font-size: 17px; }
+.cal-nvz h3 { color: #0F5E5E; font-size: 22px; margin: 30px 0 12px; text-transform: none; }
 .cal-nvz-solution { background: #E1F5EE; border-radius: 14px; padding: 24px; margin: 24px 0; }
 .cal-nvz-solution h3 { margin-top: 0; }
 .cal-nvz-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 16px 0; }
 .cal-nvz-opt { background: #fff; border-radius: 12px; padding: 18px 16px; position: relative; }
-.cal-nvz-opt strong { display: block; color: #2A2E35; font-size: 1.05rem; margin-bottom: 6px; }
-.cal-nvz-opt p { font-size: .92rem; margin: 0; color: #4A4F55; }
-.cal-nvz-badge { position: absolute; top: -10px; right: 14px; background: #0F5E5E; color: #fff; font-size: .7rem; font-weight: 600; padding: 3px 10px; border-radius: 999px; }
+.cal-nvz-opt strong { display: block; color: #2A2E35; font-size: 17px; margin-bottom: 6px; }
+.cal-nvz-opt p { font-size: 15px; margin: 0; color: #4A4F55; }
+.cal-nvz-badge { position: absolute; top: -10px; right: 14px; background: #0F5E5E; color: #fff; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 999px; }
 .cal-nvz-pay { display: flex; flex-wrap: wrap; gap: 14px; background: #fff; border: 1px dashed #0F5E5E; border-radius: 12px; padding: 16px 18px; }
 .cal-nvz-pay > div { flex: 1 1 200px; }
-.cal-nvz-pay span { display: block; font-size: .78rem; color: #5A6066; text-transform: uppercase; letter-spacing: .03em; margin-bottom: 2px; }
-.cal-nvz-pay strong { font-size: 1.2rem; color: #0F5E5E; }
+.cal-nvz-pay span { display: block; font-size: 12px; color: #5A6066; text-transform: uppercase; letter-spacing: .03em; margin-bottom: 2px; }
+.cal-nvz-pay strong { font-size: 19px; color: #0F5E5E; }
 .cal-nvz-quote { border-left: 3px solid #0F5E5E; margin: 16px 0; padding: 6px 0 6px 16px; color: #4A4F55; font-style: italic; }
-.cal-nvz-quote cite { display: block; margin-top: 8px; font-style: normal; font-size: .85rem; color: #5A6066; }
+.cal-nvz-quote cite { display: block; margin-top: 8px; font-style: normal; font-size: 14px; color: #5A6066; }
 .cal-nvz-steps { padding-left: 20px; }
 .cal-nvz-steps li { margin: 8px 0; line-height: 1.55; color: #2A2E35; }
 .cal-nvz-close { background: #F4FAF9; border: 1px solid #CDE9E0; border-radius: 12px; padding: 16px 18px; margin-top: 24px; }
@@ -500,11 +500,11 @@ body.ordering-process #header { position: static !important; box-shadow: none !i
    ========================================================================== */
 .cal-sun-hero { background: #FFF6E6; border-radius: 16px; padding: 30px 32px; margin-bottom: 28px; text-align: left; }
 .cal-sun-tag { display: inline-block; color: #0F5E5E; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; font-size: 13px; margin-bottom: 8px; }
-.cal-sun-hero h2 { font-size: 2rem; color: #2A2E35; margin: 0 0 12px; text-transform: none; line-height: 1.15; }
-.cal-sun-hero > p { font-size: 1rem; line-height: 1.65; color: #2A2E35; max-width: 780px; margin: 0 0 22px; }
-.cal-sun-feats { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.cal-sun-hero h2 { font-size: 32px; color: #2A2E35; margin: 0 0 12px; text-transform: none; line-height: 1.15; }
+.cal-sun-hero > p { font-size: 16px; line-height: 1.65; color: #2A2E35; max-width: 780px; margin: 0 0 22px; }
+.cal-sun-feats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 40px; max-width: 860px; }
 .cal-sun-feat { display: flex; align-items: flex-start; gap: 12px; }
 .cal-sun-feat svg { width: 26px !important; height: 26px !important; color: #E5A21C; flex: none; margin-top: 2px; }
-.cal-sun-feat strong { display: block; color: #2A2E35; font-size: .98rem; margin-bottom: 2px; }
-.cal-sun-feat span { font-size: .88rem; color: #5A6066; line-height: 1.4; }
-@media (max-width: 640px) { .cal-sun-feats { grid-template-columns: 1fr; } .cal-sun-hero { padding: 24px 20px; } .cal-sun-hero h2 { font-size: 1.6rem; } }
+.cal-sun-feat strong { display: block; color: #2A2E35; font-size: 16px; margin-bottom: 2px; }
+.cal-sun-feat span { font-size: 14px; color: #5A6066; line-height: 1.4; }
+@media (max-width: 640px) { .cal-sun-feats { grid-template-columns: 1fr; } .cal-sun-hero { padding: 24px 20px; } .cal-sun-hero h2 { font-size: 26px; } }
