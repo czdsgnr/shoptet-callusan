@@ -13,11 +13,15 @@
     if (document.querySelector('.cal-trustbar')) return;        // idempotentní
     var header = document.getElementById('header');
     if (!header || !header.parentNode) return;
-    var items = [
-      'Německá péče o nohy od roku 1925',
-      'Doporučují podologové',
-      'Nemastná pěna, vstřebá se ihned'
-    ];
+    // Texty lišty jdou přepsat z administrace: v hlavičce webu stačí nastavit
+    // window.CAL_TRUSTBAR = ['text 1','text 2', ...]; jinak se použijí výchozí.
+    var items = (Array.isArray(window.CAL_TRUSTBAR) && window.CAL_TRUSTBAR.length)
+      ? window.CAL_TRUSTBAR
+      : [
+        'Německá péče o nohy od roku 1925',
+        'Doporučují podologové',
+        'Nemastná pěna, vstřebá se ihned'
+      ];
     var bar = document.createElement('div');
     bar.className = 'cal-trustbar';
     bar.setAttribute('role', 'complementary');
