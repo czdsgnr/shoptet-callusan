@@ -312,6 +312,26 @@
     }
   }
 
+  /* --------------------------------------------------------------------------
+     Homepage: pod blok „Nové články" přidat tlačítko na výpis všech článků.
+     Styl v CSS → .cal-blog-all
+     -------------------------------------------------------------------------- */
+  function addBlogAllButton() {
+    if (!document.body || document.body.className.indexOf('in-index') === -1) return;
+    var wrap = document.querySelector('.homepage-blog-wrapper');
+    if (!wrap || document.querySelector('.cal-blog-all')) return;
+    var first = wrap.querySelector('.news-item > a');
+    if (!first) return;
+    // odvodit odkaz na výpis z prvního článku: /blog/nazev/ → /blog/
+    var href = first.getAttribute('href') || '';
+    var base = href.replace(/^(\/[^\/]+\/).*$/, '$1') || '/blog/';
+    var box = document.createElement('div');
+    box.className = 'cal-blog-all';
+    box.innerHTML = '<a href="' + base + '">Zobrazit všechny články' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>';
+    wrap.parentNode.insertBefore(box, wrap.nextSibling);
+  }
+
   function init() {
     injectTrustbar();
     setupStickyHeader();
@@ -324,6 +344,7 @@
     addVariantMl();
     highlightBestVariant();
     decorateUSP();
+    addBlogAllButton();
   }
   if (document.readyState !== 'loading') init();
   else document.addEventListener('DOMContentLoaded', init);

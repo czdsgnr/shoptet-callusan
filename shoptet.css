@@ -531,3 +531,85 @@ body.ordering-process #header { position: static !important; box-shadow: none !i
 /* Poslední komentáře + Poslední hodnocení pryč z homepage (jinde zůstávají).
    Skrýváme celý wrapper, ať po sekci nezůstane prázdné místo. */
 body.in-index .homepage-latest-contribution-full-width { display: none !important; }
+
+/* ==========================================================================
+   22) HOMEPAGE – „Nové články": 4 karty vedle sebe, fotka nahoře, pod ní
+   titulek + popisek + tlačítko. Šablona defaultně dělá 2 obří karty (856×856)
+   s textem jako tmavý overlay PŘES fotku → vracíme text do toku.
+   ========================================================================== */
+.homepage-blog-wrapper { gap: 16px; align-items: stretch; }
+.homepage-blog-wrapper .news-item { padding: 0 !important; display: flex !important; height: auto !important; }
+.homepage-blog-wrapper .news-item > a {
+  flex: 1;
+  display: flex !important;
+  flex-direction: column;
+  height: auto !important;
+  background: #fff;
+  border: 1px solid #ECECEC;
+  border-radius: 14px;
+  overflow: hidden;
+  text-decoration: none;
+  color: #2A2E35;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.homepage-blog-wrapper .news-item > a:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(15, 94, 94, .12); }
+.homepage-blog-wrapper .news-item .image { height: 200px !important; flex: 0 0 200px !important; overflow: hidden; background: #F4FAF9; }
+.homepage-blog-wrapper .news-item .image img { width: 100% !important; height: 100% !important; object-fit: cover; display: block; }
+/* článek bez náhledové fotky → jemný teal placeholder, ať karty drží stejný tvar */
+.homepage-blog-wrapper .news-item > a:not(:has(.image))::before {
+  content: "";
+  display: block;
+  flex: 0 0 200px;
+  height: 200px;
+  background: #E1F5EE;
+}
+/* text zpět do toku (šablona ho má absolutně přes fotku s tmavým pozadím) */
+.homepage-blog-wrapper .news-item .text {
+  position: static !important;
+  background: none !important;
+  top: auto !important; left: auto !important; right: auto !important; bottom: auto !important;
+  height: auto !important;
+  padding: 14px 16px 16px !important;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto !important;
+  min-height: 0;
+}
+.homepage-blog-wrapper .news-item .title { font-size: 17px !important; font-weight: 600; line-height: 1.3; margin-bottom: 8px; display: block; color: #2A2E35 !important; }
+.homepage-blog-wrapper .news-item .description,
+.homepage-blog-wrapper .news-item .description p { font-size: 14px !important; line-height: 1.5; color: #5A6066 !important; }
+.homepage-blog-wrapper .news-item .description { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 14px; height: auto !important; }
+.homepage-blog-wrapper .news-item .description p { margin: 0; }
+.homepage-blog-wrapper .news-item .read-article {
+  margin-top: auto;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  background: #0F5E5E;
+  color: #fff !important;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: 8px;
+}
+@media (min-width: 992px) {
+  .homepage-blog-wrapper .news-item { flex: 0 1 calc(25% - 12px) !important; max-width: calc(25% - 12px) !important; }
+}
+/* tlačítko „Zobrazit všechny články" pod blokem (injektuje shoptet.js) */
+.cal-blog-all { text-align: center; margin: 6px 0 34px; }
+.cal-blog-all a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 2px solid #0F5E5E;
+  color: #0F5E5E !important;
+  background: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 11px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background .15s ease, color .15s ease;
+}
+.cal-blog-all a:hover { background: #0F5E5E; color: #fff !important; }
