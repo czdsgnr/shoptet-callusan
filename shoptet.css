@@ -590,7 +590,9 @@ body.in-index .homepage-latest-contribution-full-width { display: none !importan
 .homepage-blog-wrapper .news-item .description { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 24px; height: auto !important; }
 .homepage-blog-wrapper .news-item .description p { margin: 0; }
 .homepage-blog-wrapper .news-item .read-article {
-  margin-top: auto;
+  /* šablona zarovnává obsah dolů přes .text{justify-content:flex-end},
+     takže mezeru nad tlačítkem řešíme jeho vlastním margin-top */
+  margin-top: 24px !important;
   display: inline-flex !important;
   align-items: center;
   justify-content: center;
