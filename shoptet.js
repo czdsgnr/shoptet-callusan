@@ -111,9 +111,17 @@
      -------------------------------------------------------------------------- */
   function injectRozcestnik() {
     if (!document.body || document.body.className.indexOf('in-index') === -1) return;
-    if (document.querySelector('.cal-rozcestnik')) return;
     var anchor = document.querySelector('.benefit-banners-full-width');
     if (!anchor || !anchor.parentNode) return;
+    // Ručně vložený blok z administrace (editor homepage ho vysype až dole)
+    // → nevytvářet druhý, jen ho přesunout pod USP pruh, kam patří.
+    var existing = document.querySelector('.cal-rozcestnik');
+    if (existing) {
+      if (existing.previousElementSibling !== anchor) {
+        anchor.parentNode.insertBefore(existing, anchor.nextSibling);
+      }
+      return;
+    }
     var IMG = 'https://czdsgnr.github.io/shoptet-callusan/img/';
     var tiles = [
       { t: 'Suchá kůže', u: '/sucha-pokozka/', img: IMG + 'rz-sucha-kuze.jpg' },
