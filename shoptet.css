@@ -522,6 +522,10 @@ body.ordering-process #header { position: static !important; box-shadow: none !i
     margin-left: auto !important;
     margin-right: auto !important;
   }
+  /* šablona rezervuje min-height podle původních (nezmenšených) obrázků → zrušit,
+     ať se karusel přizpůsobí reálné výšce slidu. Až budou bannery ve stejném
+     poměru, budou mít všechny stejnou výšku a nebude to „skákat". */
+  .carousel-inner { min-height: 0 !important; }
   .carousel-inner .item img { width: 100% !important; height: auto !important; }
 }
 /* Poslední komentáře pryč z homepage (jinde zůstávají) */
