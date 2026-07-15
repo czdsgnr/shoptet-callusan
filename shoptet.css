@@ -518,7 +518,7 @@ body.ordering-process #header { position: static !important; box-shadow: none !i
 @media (min-width: 992px) {
   #carousel,
   .carousel.slide {
-    max-width: 1080px !important;
+    max-width: 1160px !important;   /* srovnáno se šířkou menu */
     margin-left: auto !important;
     margin-right: auto !important;
   }
