@@ -345,9 +345,16 @@
     return s;
   }
   function injectReviews() {
-    if (!document.body || document.body.className.indexOf('in-index') === -1) return;
+    if (!document.body) return;
+    var cls = document.body.className;
+    var isHome = cls.indexOf('in-index') > -1;
+    var isCat = cls.indexOf('type-category') > -1;   // platí pro všechny kategorie
+    if (!isHome && !isCat) return;
     if (document.querySelector('.cal-reviews')) return;
-    var anchor = document.querySelector('.cal-blog-all') || document.querySelector('.homepage-blog-wrapper');
+    // homepage → pod články; kategorie → pod výpis produktů
+    var anchor = isHome
+      ? (document.querySelector('.cal-blog-all') || document.querySelector('.homepage-blog-wrapper'))
+      : (document.querySelector('.category-content-wrapper') || document.querySelector('.products-block'));
     if (!anchor || !anchor.parentNode) return;
     fetch('/hodnoceni-obchodu/', { credentials: 'same-origin' })
       .then(function (r) { return r.text(); })
