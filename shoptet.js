@@ -332,6 +332,68 @@
     wrap.parentNode.insertBefore(box, wrap.nextSibling);
   }
 
+  /* --------------------------------------------------------------------------
+     Homepage: pruh recenzí. Data se tahají živě z /hodnoceni-obchodu/, takže
+     jsou vždy aktuální (žádné natvrdo psané recenze). Styl v CSS → .cal-rev-*
+     -------------------------------------------------------------------------- */
+  function revStars(n) {
+    var s = '';
+    for (var i = 0; i < 5; i++) {
+      s += '<svg viewBox="0 0 24 24" width="16" height="16" fill="' + (i < n ? '#FFB400' : '#DCDCDC') + '" aria-hidden="true">' +
+        '<path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>';
+    }
+    return s;
+  }
+  function injectReviews() {
+    if (!document.body || document.body.className.indexOf('in-index') === -1) return;
+    if (document.querySelector('.cal-reviews')) return;
+    var anchor = document.querySelector('.cal-blog-all') || document.querySelector('.homepage-blog-wrapper');
+    if (!anchor || !anchor.parentNode) return;
+    fetch('/hodnoceni-obchodu/', { credentials: 'same-origin' })
+      .then(function (r) { return r.text(); })
+      .then(function (txt) {
+        var doc = new DOMParser().parseFromString(txt, 'text/html');
+        function t(el) { return el ? el.textContent.trim() : ''; }
+        var avg = t(doc.querySelector('.rate-average'));
+        var label = t(doc.querySelector('.stars-label'));
+        var votes = [].slice.call(doc.querySelectorAll('.votes-wrap .vote-wrap'));
+        var picked = [];
+        for (var i = 0; i < votes.length && picked.length < 4; i++) {
+          var txtIn = t(votes[i].querySelector('.vote-content'));
+          if (txtIn.length < 8) continue;               // přeskoč holé hvězdičky
+          picked.push({
+            txt: txtIn,
+            name: t(votes[i].querySelector('.vote-name')),
+            date: t(votes[i].querySelector('.vote-time')),
+            stars: votes[i].querySelectorAll('.star.star-on').length || 5
+          });
+        }
+        if (!picked.length) return;
+        var cards = '';
+        for (var j = 0; j < picked.length; j++) {
+          var p = picked[j];
+          cards += '<article class="cal-rev-card">' +
+            '<div class="cal-rev-stars">' + revStars(p.stars) + '</div>' +
+            '<p class="cal-rev-txt">' + p.txt.replace(/</g, '&lt;') + '</p>' +
+            '<div class="cal-rev-meta"><strong>' + p.name.replace(/</g, '&lt;') + '</strong>' + p.date + '</div>' +
+            '</article>';
+        }
+        var sec = document.createElement('section');
+        sec.className = 'cal-reviews';
+        sec.setAttribute('aria-label', 'Hodnocení zákazníků');
+        sec.innerHTML =
+          '<div class="cal-rev-head">' +
+            (avg ? '<span class="cal-rev-score">' + avg + '</span>' : '') +
+            '<div><p class="cal-rev-htitle">Co říkají naši zákazníci</p>' +
+            '<span class="cal-rev-count">' + (label || 'hodnocení') + '</span></div>' +
+            '<a class="cal-rev-all" href="/hodnoceni-obchodu/">Zobrazit všechny recenze' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="17" height="17"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>' +
+          '</div><div class="cal-rev-grid">' + cards + '</div>';
+        anchor.parentNode.insertBefore(sec, anchor.nextSibling);
+      })
+      .catch(function () { /* ticho – pruh se prostě nezobrazí */ });
+  }
+
   function init() {
     injectTrustbar();
     setupStickyHeader();
@@ -345,6 +407,7 @@
     highlightBestVariant();
     decorateUSP();
     addBlogAllButton();
+    injectReviews();
   }
   if (document.readyState !== 'loading') init();
   else document.addEventListener('DOMContentLoaded', init);
