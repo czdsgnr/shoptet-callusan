@@ -528,5 +528,6 @@ body.ordering-process #header { position: static !important; box-shadow: none !i
   .carousel-inner { min-height: 0 !important; }
   .carousel-inner .item img { width: 100% !important; height: auto !important; }
 }
-/* Poslední komentáře pryč z homepage (jinde zůstávají) */
-body.in-index .latest-contribution-discussion { display: none !important; }
+/* Poslední komentáře + Poslední hodnocení pryč z homepage (jinde zůstávají).
+   Skrýváme celý wrapper, ať po sekci nezůstane prázdné místo. */
+body.in-index .homepage-latest-contribution-full-width { display: none !important; }
