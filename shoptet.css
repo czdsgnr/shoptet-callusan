@@ -587,7 +587,7 @@ body.in-index .homepage-latest-contribution-full-width { display: none !importan
 .homepage-blog-wrapper .news-item .title { font-size: 17px !important; font-weight: 600; line-height: 1.3; margin-bottom: 8px; display: block; color: #2A2E35 !important; }
 .homepage-blog-wrapper .news-item .description,
 .homepage-blog-wrapper .news-item .description p { font-size: 14px !important; line-height: 1.5; color: #5A6066 !important; }
-.homepage-blog-wrapper .news-item .description { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 14px; height: auto !important; }
+.homepage-blog-wrapper .news-item .description { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 24px; height: auto !important; }
 .homepage-blog-wrapper .news-item .description p { margin: 0; }
 .homepage-blog-wrapper .news-item .read-article {
   margin-top: auto;
