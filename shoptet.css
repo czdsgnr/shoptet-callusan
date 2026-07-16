@@ -671,3 +671,13 @@ body.in-index .homepage-latest-contribution-full-width { display: none !importan
   .cal-rev-grid { grid-template-columns: 1fr; }
   .cal-rev-all { margin-left: 0; }
 }
+
+/* ==========================================================================
+   24) DOČASNĚ VYPNUTO – blok „Nové články" na homepage (přání klienta
+   2026-07-07: než se odsouhlasí zdroj a obsah článků).
+   Skrývá i nadpis (je uvnitř wrapperu) a tlačítko „Zobrazit všechny články".
+   Výpis /blog/ zůstává funkční – proto scope na body.in-index.
+   ZNOVU ZAPNOUT = smazat tuhle sekci.
+   ========================================================================== */
+body.in-index .homepage-blog-wrapper,
+body.in-index .cal-blog-all { display: none !important; }
